@@ -27,8 +27,8 @@ steps:
   - -c
   - |
     registry apply -f demoapi.yaml \
+      --parent=projects/${_REGISTRY_PROJECT}/locations/global \
       --registry.address=apigeeregistry.googleapis.com:443 \
-      --registry.project=${_REGISTRY_PROJECT} \
       --registry.token=$(cat /workspace/creds)
 options:
   logging: CLOUD_LOGGING_ONLY
