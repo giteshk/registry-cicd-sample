@@ -20,13 +20,14 @@ steps:
   - -c
   - |
     gcloud auth application-default print-access-token > /workspace/creds
-- id: "Get API Deployment from Hub"
+- id: "Apply API details to API Hub instance"
   name: 'ghcr.io/apigee/registry-tools:latest'
   entrypoint: /bin/bash
   args:
   - -c
   - |
-    registry apply -f api-config.yaml \
+    registry apply -f demoapi.yaml \
+      --registry.address=apigeeregistry.googleapis.com:443 \
       --registry.project=${_REGISTRY_PROJECT} \
       --registry.token=$(cat /workspace/creds)
 options:
