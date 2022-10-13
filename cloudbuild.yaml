@@ -29,3 +29,5 @@ steps:
     registry apply -f api-config.yaml \
       --registry.project=${_REGISTRY_PROJECT} \
       --registry.token=$(cat /workspace/creds)
+options:
+  logging: CLOUD_LOGGING_ONLY
